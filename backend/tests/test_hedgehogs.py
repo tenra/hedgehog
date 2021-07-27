@@ -118,7 +118,7 @@ class TestUpdateHedgehog:
                               (['description'],
                                ['new fake hedgehog description']),
                               (['age'],
-                               [3.14]),
+                               [3.1]),
                               (['color_type'],
                                ['CHOCOLATE']),
                               (['name', 'description'],
