@@ -2,11 +2,14 @@ from fastapi import FastAPI
 from databases import Database
 from app.core.config import DATABASE_URL
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
 
 async def connect_to_db(app: FastAPI) -> None:
+    CONTAINER_DSN = os.environ.get('CONTAINER_DSN', '')
+    DB_URL = CONTAINER_DSN if CONTAINER_DSN else DATABASE_URL
     database = Database(DATABASE_URL, min_size=2, max_size=5)
 
     try:
